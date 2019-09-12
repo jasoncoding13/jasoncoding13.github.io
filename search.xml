@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python String Formatting]]></title>
+    <url>%2F2019%2F08%2F06%2Fpython-string-formatting%2F</url>
+    <content type="text"><![CDATA[摘要Python 3.0 之后，str的对象支持一个method，str.format()。它是针对原来str所支持的%operator一个优化。这里简单地记录一些用法和例子。 常见使用方法 使用{}作为输出内容的占位符。 12&gt;&gt;&gt;'&#123;&#125; &#123;&#125;'.format('Hello','World')'Hello World' 添加key指定输出对应的参数。key为数字时是参数位置的索引，为字符串时是关键字的索引。 12&gt;&gt;&gt;'&#123;1&#125; &#123;0&#125; &#123;a&#125;'.format('Hello','World', a='!')'World Hello !' 结合*operator解析list，dict。 123456&gt;&gt;&gt;lst = ['Hello', 'World']&gt;&gt;&gt;'&#123;&#125; &#123;&#125;'.format(*lst)Hello World&gt;&gt;&gt;dct = &#123;'a':'Hello', 'b':'World'&#125;&gt;&gt;&gt;'&#123;a&#125; &#123;b&#125;'.format(**dct)Hello World Py3.6后还可以用f-string的方式直接制定输出变量。 123&gt;&gt;&gt;string = 'Hello World'&gt;&gt;&gt;f'&#123;string&#125;'Hello World 输出格式 格式化输出的用法如下面例子。:前的部分是上文提及的key，指定输出的内容。:后的.1和.3分别指以小数点后保留1位和3位的格式输出。 12345&gt;&gt;&gt;num = 0.1313&gt;&gt;&gt;'&#123;:.1&#125;'.format(num)'0.1'&gt;&gt;&gt;f'&#123;num:.3&#125;''0.131' 格式的一般形式如下: [[fill]align][sign][#][0][minimumwidth][.precision][type] 如上文提及[.precision]是指小数点后显示的位数。minimumwidth则是指输出的规定长度。 123456&gt;&gt;&gt;f&apos;&#123;num:13&#125;&apos;&apos; 0.1313&apos;&gt;&gt;&gt;f&apos;&#123;num:13.3&#125;&apos;&apos; 0.131&apos;&gt;&gt;&gt;f&apos;&#123;string:13&#125;&apos;&apos;Hello World &apos; [[fill]align]指定在内容长度小于规定长度时输出的位置和是否padding补全。align为&lt;，^，&gt;分别指居左，居中，居右。输出内容是字符串，默认居左。输出内容是数字，默认居右。align还有一种选择是=，指padding补全在符号后数字前。fill指定padding的字符，默认为空格。 123456&gt;&gt;&gt;f&apos;&#123;num:0&lt;13&#125;&apos;&apos;0.13130000000&apos;&gt;&gt;&gt;f&apos;&#123;string:-^13&#125;&apos;&apos;-Hello World-&apos;&gt;&gt;&gt;&apos;&#123;:0=13&#125;&apos;.format(-1) # fill:0 align:= minimumwidth:13&apos;-000000000001&apos; [sign]指显示数字符号的格式。+表示正负数均带符号。-表示正数不带符号，负数带负号。空格表示正数保留一个空格，负数带负号。 123456&gt;&gt;&gt;&apos;&#123;:+&#125; &#123;:+&#125;&apos;.format(1, -1)&apos;+1 -1&apos;&gt;&gt;&gt;&apos;&#123;:- :-&#125;&apos;.format(1, -1)&apos;1 -1&apos;&gt;&gt;&gt;&apos;&#123;: &#125; &#123;: &#125;&apos;.format(1, -1)&apos; 1 -1&apos; 参照datetime模块可以实现日期按照指定格式输出。关于%a等指代意义可以参照datetime的官方文档。 123&gt;&gt;&gt;from datetime import datetime&gt;&gt;&gt;'&#123;:%a %b %d %Y&#125;'.format(datetime.now())'Tue Aug 06 2019' 关于格式化其他参数的用法可以参照PEP 3101。]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>String</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[第一篇日志]]></title>
     <url>%2F2019%2F05%2F29%2Ffirst-post%2F</url>
     <content type="text"><![CDATA[很久很久没有写日志之类的东西了。 最近两天部署好了自己的主页，有一丁点的不一样的感觉。 时间不大够、以后慢慢补主页、 例如相册啊，可以秀恩爱，或者听歌，继续听我的红豆、 在部署过程中，发现自己的毛病又出来了。 本来npm的依赖其实可搞可不搞，我手痒搞了两天、 所以时间终究要挥霍一下才能显得珍贵吗？ 我的园园猪猪最珍贵。 时间不大够、现在好好学习、]]></content>
