@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[lists-copies]]></title>
+    <url>%2F2020%2F03%2F12%2Flists-copies%2F</url>
+    <content type="text"><![CDATA[列表复制 如下分别是三种复制， =，切片（Shallow Copy）和deepcopy。 12345&gt;&gt;&gt; from copy import deepcopy&gt;&gt;&gt; x = [[0, 1], [2, 3]]&gt;&gt;&gt; y = x &gt;&gt;&gt; z = x[:] &gt;&gt;&gt; u = deepcopy(x) 首先，这三种复制有共同点： x==y==z==u返回True，它们的值都是一样的。 对于第一种=， 因为列表是mutable对象，这里的y和x将指向同一个地址。 x is y返回True，表明它们是同一个object，只是两个names。 对于第二种和第三种，`z is x or u is x返回False。 它们已经和原来的x不是同一个对象了，只是它们的values是相等的。 重点来了， 1234&gt;&gt;&gt; x[0] = 4&gt;&gt;&gt; x[1][0] = 5&gt;&gt;&gt; x, y, z, u([4, [5, 3]], [4, [5, 3]], [[0, 1], [5, 3]], [[0, 1], [2, 3]]) 可以看见，当我们改变了x的第一个列表元素为整数4，第二个列表元素的第一个元素为5。 y和x保持一致，因为它们本身就是同一个object。 z是切片复制，浅复制。这个深浅是什么意思呢？x本身是个两层嵌套的列表。而浅复制z = x[:]就是指，建立一个和x等长的列表z，z中每个元素按照顺序指向x中元素对应的地址。此时，x的第一个元素从指向一个列表为[0, 1]的地址变成指向整数4的地址。而x第二个元素的地址没有改变，改变的是x第二个元素中第一个元素的指向，从指向整数2变成指向整数5。我们可以使用验证它们第二个元素在内存中的地址是不是一样的。 12&gt;&gt;&gt; id(x[1]) == id(z[1])True 而深复制u = deepcopy(x)就好理解了，创建一个新的对象，递归地对x中元素进行复制，并重新分配内存地址。所以u和x已经是完全没有关联的对象。 待验证的个人说法， y = x是把建立变量名称y到x内存地址的映射。 z = x[:]是建立变量名称z到某列表的映射，该列表元素的内存地址与x元素的相等。 u = deepcopy(x)是建立变量名称u到某列表的映射，该列表元素的内存地址。]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>List</tag>
+        <tag>Copy</tag>
+        <tag>Slice</tag>
+        <tag>Shallow Copy</tag>
+        <tag>Deep Copy</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python-Coding-Style]]></title>
     <url>%2F2020%2F03%2F12%2Fpython-coding-style%2F</url>
     <content type="text"><![CDATA[代码风格相关 源代码解释器和编码声明 Python Tutorial Source Code Encoding 常见的.py文件初始两行如下： 12#!/urs/bin/env python3# -*- coding: utf-8 -*- 第一行的作用是声明解释器，仅在UNIX系统有效。 通常情况下，我们使用python main.py执行main.py脚本。 这里可以理解为告诉系统使用环境变量中的python去解释main.py。 如果我们在脚本的第一行声明了解释器，并对该脚本赋予执行权限。 1chmod +x main.py 这样情况下，我们可以像执行shell脚本的方式./main.py执行脚本。 第二行的作用是声明编码。 默认编码是utf-8。 声明的编码必须是codecs支持的编码，如cp1252。]]></content>

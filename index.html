@@ -269,7 +269,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">11</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">16</span></a>
 
   </li>
         
@@ -307,7 +307,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">5</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">6</span></a>
 
   </li>
 
@@ -379,6 +379,200 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jasoncoding13.github.io/2020/03/12/lists-copies/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jason Chan">
+      <meta itemprop="description" content="Math">
+      <meta itemprop="image" content="/images/head_portrait.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jasoncoding13's Page">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/03/12/lists-copies/" class="post-title-link" itemprop="url">lists-copies</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-12 12:06:30 / 修改时间：10:01:07" itemprop="dateCreated datePublished" datetime="2020-03-12T12:06:30+08:00">2020-03-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2020/03/12/lists-copies/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/12/lists-copies/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="列表复制">列表复制</h1>
+<p>如下分别是三种复制， <code>=</code>，切片（Shallow Copy）和<code>deepcopy</code>。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> copy <span class="keyword">import</span> deepcopy</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x = [[<span class="number">0</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">3</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>y = x </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>z = x[:] </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>u = deepcopy(x)</span><br></pre></td></tr></table></figure>
+<p>首先，这三种复制有共同点：</p>
+<p><code>x==y==z==u</code>返回<code>True</code>，它们的值都是一样的。</p>
+<p>对于第一种<code>=</code>，</p>
+<p>因为列表是mutable对象，这里的y和x将指向同一个地址。</p>
+<p><code>x is y</code>返回<code>True</code>，表明它们是同一个object，只是两个names。</p>
+<p>对于第二种和第三种，`<code>z is x or u is x</code>返回<code>False</code>。</p>
+<p>它们已经和原来的<code>x</code>不是同一个对象了，只是它们的values是相等的。</p>
+<p>重点来了，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>x[<span class="number">0</span>] = <span class="number">4</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x[<span class="number">1</span>][<span class="number">0</span>] = <span class="number">5</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>x, y, z, u</span><br><span class="line">([<span class="number">4</span>, [<span class="number">5</span>, <span class="number">3</span>]], [<span class="number">4</span>, [<span class="number">5</span>, <span class="number">3</span>]], [[<span class="number">0</span>, <span class="number">1</span>], [<span class="number">5</span>, <span class="number">3</span>]], [[<span class="number">0</span>, <span class="number">1</span>], [<span class="number">2</span>, <span class="number">3</span>]])</span><br></pre></td></tr></table></figure>
+<p>可以看见，当我们改变了<code>x</code>的第一个列表元素为整数<code>4</code>，第二个列表元素的第一个元素为<code>5</code>。</p>
+<p><code>y</code>和<code>x</code>保持一致，因为它们本身就是同一个object。</p>
+<p><code>z</code>是切片复制，浅复制。这个深浅是什么意思呢？<code>x</code>本身是个两层嵌套的列表。而浅复制<code>z = x[:]</code>就是指，建立一个和<code>x</code>等长的列表<code>z</code>，<code>z</code>中每个元素按照顺序指向<code>x</code>中元素对应的地址。此时，<code>x</code>的第一个元素从指向一个列表为<code>[0, 1]</code>的地址变成指向整数<code>4</code>的地址。而<code>x</code>第二个元素的地址没有改变，改变的是<code>x</code>第二个元素中第一个元素的指向，从指向整数<code>2</code>变成指向整数<code>5</code>。我们可以使用验证它们第二个元素在内存中的地址是不是一样的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>id(x[<span class="number">1</span>]) == id(z[<span class="number">1</span>])</span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure>
+<p>而深复制<code>u = deepcopy(x)</code>就好理解了，创建一个新的对象，递归地对<code>x</code>中元素进行复制，并重新分配内存地址。所以<code>u</code>和<code>x</code>已经是完全没有关联的对象。</p>
+<p>待验证的个人说法，</p>
+<p><code>y = x</code>是把建立变量名称<code>y</code>到<code>x</code>内存地址的映射。</p>
+<p><code>z = x[:]</code>是建立变量名称<code>z</code>到某列表的映射，该列表元素的内存地址与<code>x</code>元素的相等。</p>
+<p><code>u = deepcopy(x)</code>是建立变量名称<code>u</code>到某列表的映射，该列表元素的内存地址。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1543,7 +1737,7 @@ f_{\bf Y}({\bf y})&amp;=f_{\bf X}\big(U^{-1}({\bf y}-\mu_{\bf Y})\big)|\det(U^{-
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1611,7 +1805,17 @@ f_{\bf Y}({\bf y})&amp;=f_{\bf X}\big(U^{-1}({\bf y}-\mu_{\bf Y})\big)|\det(U^{-
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -2204,6 +2408,8 @@ f_{\bf Y}({\bf y})&amp;=f_{\bf X}\big(U^{-1}({\bf y}-\mu_{\bf Y})\big)|\det(U^{-
 
   
   
+    
+      
     
       
     
