@@ -269,7 +269,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">10</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">11</span></a>
 
   </li>
         
@@ -307,7 +307,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">4</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">5</span></a>
 
   </li>
 
@@ -379,6 +379,191 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jasoncoding13.github.io/2020/03/12/python-coding-style/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jason Chan">
+      <meta itemprop="description" content="Math">
+      <meta itemprop="image" content="/images/head_portrait.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jasoncoding13's Page">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/03/12/python-coding-style/" class="post-title-link" itemprop="url">Python-Coding-Style</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-12 11:52:05 / 修改时间：08:54:15" itemprop="dateCreated datePublished" datetime="2020-03-12T11:52:05+08:00">2020-03-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2020/03/12/python-coding-style/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/12/python-coding-style/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="代码风格相关">代码风格相关</h1>
+<h2 id="源代码解释器和编码声明">源代码解释器和编码声明</h2>
+<p><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLnB5dGhvbi5vcmcvMy90dXRvcmlhbC9pbnRlcnByZXRlci5odG1sI3NvdXJjZS1jb2RlLWVuY29kaW5n" title="https://docs.python.org/3/tutorial/interpreter.html#source-code-encoding">Python Tutorial Source Code Encoding<i class="fa fa-external-link"></i></span></p>
+<p>常见的<code>.py</code>文件初始两行如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/urs/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br></pre></td></tr></table></figure>
+<p>第一行的作用是声明解释器，仅在UNIX系统有效。</p>
+<p>通常情况下，我们使用<code>python main.py</code>执行<code>main.py</code>脚本。 这里可以理解为告诉系统使用环境变量中的<code>python</code>去解释<code>main.py</code>。</p>
+<p>如果我们在脚本的第一行声明了解释器，并对该脚本赋予执行权限。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x main.py</span><br></pre></td></tr></table></figure></p>
+<p>这样情况下，我们可以像执行shell脚本的方式<code>./main.py</code>执行脚本。</p>
+<p>第二行的作用是声明编码。</p>
+<p>默认编码是<code>utf-8</code>。</p>
+<p>声明的编码必须是<code>codecs</code>支持的编码，如<code>cp1252</code>。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1358,7 +1543,7 @@ f_{\bf Y}({\bf y})&amp;=f_{\bf X}\big(U^{-1}({\bf y}-\mu_{\bf Y})\big)|\det(U^{-
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1424,7 +1609,9 @@ f_{\bf Y}({\bf y})&amp;=f_{\bf X}\big(U^{-1}({\bf y}-\mu_{\bf Y})\big)|\det(U^{-
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1542,7 +1729,7 @@ f_{\bf Y}({\bf y})&amp;=f_{\bf X}\big(U^{-1}({\bf y}-\mu_{\bf Y})\big)|\det(U^{-
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2019 – <span itemprop="copyrightYear">2020</span>
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
@@ -2017,6 +2204,8 @@ f_{\bf Y}({\bf y})&amp;=f_{\bf X}\big(U^{-1}({\bf y}-\mu_{\bf Y})\big)|\det(U^{-
 
   
   
+    
+      
     
       
     
