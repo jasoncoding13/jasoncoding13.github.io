@@ -307,7 +307,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">10</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">9</span></a>
 
   </li>
 
@@ -523,162 +523,6 @@
 <p>模算数就是一种整数算术系统，时钟就是一个典型例子。十二小时制的时钟，不能表示大于12或小于1的钟点（整数）。例如，7点再过8小时，时钟指向3点而不是15点。这就是模12的模算术系统。它有什么好处呢？那就是可以利用同余关系简化运算。在模算术系统中，a与b的加减乘法运算，其结果与对应a的同余a’与b的同余b‘的相等。例如，7+8=-5+8=3，其中7与-5关于12同余。</p>
 <h3 id="补码回顾">补码回顾</h3>
 <p>回顾下1000 0000在二进制编码表示128，在补码表示-128，128与-128关于模256同余。补码本质就是把128<sub>255的编码映射到其在-128</sub>-1的对应同余上。计算法则沿用的是非负范围的二进制编码运算，但是整个编码的值域移动了。举个例子加深印象，假设补码使用1000 0000表示128，而不是-128。计算128-127=1000 0000+1000 0001 =0000 0001（最高位溢出）。有没有感觉？所以改变的只是我们约定的编码的值域。对负数求补码的过程，求反码再加1。例如-127，其相反数127的原码0111 1111，-127的反码1000 0000。注意0111 1111+1000 0000=1111 1111即255，可得-127=255-127+1=129。所以负数的补码，就是求其对应的正同余的原码。</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jasoncoding13.github.io/2020/07/01/new-in-python-3-8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jason Chan">
-      <meta itemprop="description" content="Math">
-      <meta itemprop="image" content="/images/head_portrait.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jasoncoding13's Page">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2020/07/01/new-in-python-3-8/" class="post-title-link" itemprop="url">New In Python 3.8</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2020-07-01 10:39:19 / 修改时间：08:39:19" itemprop="dateCreated datePublished" datetime="2020-07-01T10:39:19+08:00">2020-07-01</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2020/07/01/new-in-python-3-8/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/07/01/new-in-python-3-8/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
 
           
         
@@ -1146,12 +990,24 @@
                 
               
 
-              <time title="创建时间：2020-03-12 12:06:30 / 修改时间：10:01:07" itemprop="dateCreated datePublished" datetime="2020-03-12T12:06:30+08:00">2020-03-12</time>
+              <time title="创建时间：2020-03-12 12:06:30" itemprop="dateCreated datePublished" datetime="2020-03-12T12:06:30+08:00">2020-03-12</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-11-30 19:17:21" itemprop="dateModified" datetime="2020-11-30T19:17:21+08:00">2020-11-30</time>
               
             
           </span>
@@ -1238,7 +1094,7 @@
 <p>待验证的个人说法，</p>
 <p><code>y = x</code>是把建立变量名称<code>y</code>到<code>x</code>内存地址的映射。</p>
 <p><code>z = x[:]</code>是建立变量名称<code>z</code>到某列表的映射，该列表元素的内存地址与<code>x</code>元素的相等。</p>
-<p><code>u = deepcopy(x)</code>是建立变量名称<code>u</code>到某列表的映射，该列表元素的内存地址。</p>
+<p><code>u = deepcopy(x)</code>是建立变量名称<code>u</code>到某列表的映射，该列表元素的内存地址与<code>x</code>元素的无关。</p>
 
           
         
@@ -2443,7 +2299,7 @@ f_{\bf Y}({\bf y})&amp;=f_{\bf X}\big(U^{-1}({\bf y}-\mu_{\bf Y})\big)|\det(U^{-
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -3122,8 +2978,6 @@ f_{\bf Y}({\bf y})&amp;=f_{\bf X}\big(U^{-1}({\bf y}-\mu_{\bf Y})\big)|\det(U^{-
 
   
   
-    
-      
     
       
     
