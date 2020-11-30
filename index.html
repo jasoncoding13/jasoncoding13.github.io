@@ -269,7 +269,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">16</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">19</span></a>
 
   </li>
         
@@ -288,7 +288,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">6</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">7</span></a>
 
   </li>
         
@@ -307,7 +307,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">6</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">10</span></a>
 
   </li>
 
@@ -379,6 +379,712 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jasoncoding13.github.io/2020/11/22/signed-number-representation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jason Chan">
+      <meta itemprop="description" content="Math">
+      <meta itemprop="image" content="/images/head_portrait.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jasoncoding13's Page">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/11/22/signed-number-representation/" class="post-title-link" itemprop="url">signed_number_representation.md</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-11-22 23:01:26" itemprop="dateCreated datePublished" datetime="2020-11-22T23:01:26+08:00">2020-11-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-11-30 19:12:17" itemprop="dateModified" datetime="2020-11-30T19:12:17+08:00">2020-11-30</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2020/11/22/signed-number-representation/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/11/22/signed-number-representation/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="有符号数的表示">有符号数的表示</h1>
+<p>有符号数的表示，是指将负数编码表示为二进制形式。目前已知的常见的有符号数的表示有四种：原码、反码、补码、移码。</p>
+<h2 id="原码-signed-magnitude-representation">原码 Signed magnitude representation</h2>
+<p>原码是通过分配一个符号位表示数的符号，通常是最高位，0代表正数，1代表负数。一个字节8位，使用最高位表示符号位，则数的表示范围是十进制的-127到127。十进制数-43=-(32+8+2+1)使用原码表示1010 1011。</p>
+<h2 id="反码-ones-complement">反码 One's complement</h2>
+<p>反码也是通过一个符号位表示数的符号，通常也是最高位，0代表正数，1代表负数。一个正数的反码与其原码相同，例如十进制数13=8+4+1的1字节原码和反码都是00001101。一个负数的符号位为1，数值位是该负数的相反数的原码数值位互换0和1。因为负数反码的符号位也可以理解成该负数的相反数的原码符号位互换0和1（0&gt;1）。所以，负数的反码即其相反数的原码互换0和1。例如十进制数-13=-(8+4+1)的绝对值为13，13的原码是0000 1101，原码互换0和1就是1111 0010。1字节反码的表示范围仍然是十进制的-127到127。</p>
+<h2 id="补码-twos-complement">补码 Two's complement</h2>
+<p>0与正数的补码与其原码相同，负数的补码等于其反码+1。例如，十进制数-27=-(16+8+2+1)，27的原码为0001 1011，则-27反码为1110 0100，-27补码为1110 0101。1字节补码的表示范围是十进制的-128到127。</p>
+<h2 id="例子">例子</h2>
+<p>计算43-13， 43的补码等于原码0010 1011，-13的补码等于反码1111 0010加0000 0001即1111 0011。0010 1011 + 1111 0011 = 0001 1110。若某数补码为0001 1110，其原码等于补码，该数为十进制16+8+4+2=30。</p>
+<p>计算-13-27，-13的补码即1111 0011，-27的补码即1110 0101。 1111 0011 + 1110 0101 = 1101 1000。若某数补码为1101 1000，其反码为1101 0111，其原码为0010 1000，该数为十进制-(32+8)=-40。</p>
+<h2 id="补码原理">补码原理</h2>
+<p>这个补码的原理真的搞死我了。</p>
+<h3 id="模算数">模算数</h3>
+<p>模算数就是一种整数算术系统，时钟就是一个典型例子。十二小时制的时钟，不能表示大于12或小于1的钟点（整数）。例如，7点再过8小时，时钟指向3点而不是15点。这就是模12的模算术系统。它有什么好处呢？那就是可以利用同余关系简化运算。在模算术系统中，a与b的加减乘法运算，其结果与对应a的同余a’与b的同余b‘的相等。例如，7+8=-5+8=3，其中7与-5关于12同余。</p>
+<h3 id="补码回顾">补码回顾</h3>
+<p>回顾下1000 0000在二进制编码表示128，在补码表示-128，128与-128关于模256同余。补码本质就是把128<sub>255的编码映射到其在-128</sub>-1的对应同余上。计算法则沿用的是非负范围的二进制编码运算，但是整个编码的值域移动了。举个例子加深印象，假设补码使用1000 0000表示128，而不是-128。计算128-127=1000 0000+1000 0001 =0000 0001（最高位溢出）。有没有感觉？所以改变的只是我们约定的编码的值域。对负数求补码的过程，求反码再加1。例如-127，其相反数127的原码0111 1111，-127的反码1000 0000。注意0111 1111+1000 0000=1111 1111即255，可得-127=255-127+1=129。所以负数的补码，就是求其对应的正同余的原码。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jasoncoding13.github.io/2020/07/01/new-in-python-3-8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jason Chan">
+      <meta itemprop="description" content="Math">
+      <meta itemprop="image" content="/images/head_portrait.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jasoncoding13's Page">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/07/01/new-in-python-3-8/" class="post-title-link" itemprop="url">New In Python 3.8</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-07-01 10:39:19 / 修改时间：08:39:19" itemprop="dateCreated datePublished" datetime="2020-07-01T10:39:19+08:00">2020-07-01</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2020/07/01/new-in-python-3-8/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/07/01/new-in-python-3-8/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jasoncoding13.github.io/2020/03/12/fluent-python-charpter-1-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jason Chan">
+      <meta itemprop="description" content="Math">
+      <meta itemprop="image" content="/images/head_portrait.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jasoncoding13's Page">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/03/12/fluent-python-charpter-1-2/" class="post-title-link" itemprop="url">Fluent Python Charpter 1.2</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-12 18:39:59 / 修改时间：15:40:30" itemprop="dateCreated datePublished" datetime="2020-03-12T18:39:59+08:00">2020-03-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2020/03/12/fluent-python-charpter-1-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/12/fluent-python-charpter-1-2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="fluent-python-charpter-1.2">Fluent Python Charpter 1.2</h1>
+<h2 id="how-special-methods-are-used">How Special Methods Are Used</h2>
+<ol type="1">
+<li><p>对于我们自定义的类，我们已经知道built-in functions是如何使用自定义的special methods。那么对于已经定义好的built-in types呢?这就跟解释器有关了。但是可以确定的是对内建类型使用内建函数一定是比我们显式定义的special methods快很多。例如Cpython中的built-in types都已经编译了。</p></li>
+<li><p>通常情况下，不需要自定义special methods，除非是自研library需要我们自定义数据类型或者使用library需要我们重写special method的。</p></li>
+</ol>
+<h2 id="emulating-numeric-types">Emulating Numeric Types</h2>
+<p>再来个vector的例子来体现更多的快乐。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Vector</span>:</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x, y)</span>:</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>        self.x = x</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>        self.y = y</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>        <span class="keyword">return</span> <span class="string">'Vecotr(&#123;&#125;, &#123;&#125;)'</span>.format(self.x, self.y)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>        <span class="keyword">return</span> self.__repr__()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>    <span class="function"><span class="keyword">def</span> <span class="title">__add__</span><span class="params">(self, v)</span>:</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>        x = self.x + v.x</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>        y = self.y + v.y</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>        <span class="keyword">return</span> Vector(x, y)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>v = Vector(<span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>v += Vector(<span class="number">-1</span>, <span class="number">2</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>v</span><br></pre></td></tr></table></figure>
+<ol type="1">
+<li><code>___repr__</code>定义了</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jasoncoding13.github.io/2020/03/12/fluent-python-charpter-1-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jason Chan">
+      <meta itemprop="description" content="Math">
+      <meta itemprop="image" content="/images/head_portrait.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jasoncoding13's Page">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2020/03/12/fluent-python-charpter-1-1/" class="post-title-link" itemprop="url">Fluent Python Charpter 1.1</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-12 16:20:54 / 修改时间：15:39:15" itemprop="dateCreated datePublished" datetime="2020-03-12T16:20:54+08:00">2020-03-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/note，-fluent-python/" itemprop="url" rel="index"><span itemprop="name">Note， Fluent Python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2020/03/12/fluent-python-charpter-1-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/12/fluent-python-charpter-1-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="fluent-python-charpter-1.1">Fluent Python Charpter 1.1</h1>
+<h2 id="a-pythonic-card-deck">A Pythonic Card Deck</h2>
+<p>这个post在于介绍Python的Data Model。</p>
+<p>书中的说法是，Data Model是framework。某些syntax或者built-in functions会触发解释器调用Python已经定义好的special methods。最直接的2个例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>len([<span class="number">0</span>, <span class="number">1</span>]), [<span class="number">0</span>, <span class="number">1</span>].__len__()</span><br><span class="line">(<span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>&#123;<span class="string">'a'</span>: <span class="number">0</span>&#125;[<span class="string">'a'</span>], &#123;<span class="string">'a'</span>: <span class="number">0</span>&#125;.__getitem__(<span class="string">'a'</span>)</span><br><span class="line">(<span class="number">0</span>, <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<p><code>len()</code>触发的是<code>list.__len__()</code>，<code>dict[key]</code>语法触发的就是<code>dict.__getitem__(key)</code>。</p>
+<p>这里再引用一个游戏王卡组的例子。</p>
+<p>先用<code>namedtuple</code>定义卡牌，再实例化一张青眼白龙，<code>typename</code>是这类<code>tuple</code>的意义， <code>field_names</code>就是<code>tuple</code>中对应顺序元素的意义。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> collections</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Card = collections.namedtuple(typename=<span class="string">'Card'</span>, field_names=[<span class="string">'Star'</span>, <span class="string">'ATK'</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Card(<span class="number">8</span>, <span class="number">3000</span>)</span><br><span class="line">Card(Star=<span class="number">8</span>, ATK=<span class="number">3000</span>)</span><br></pre></td></tr></table></figure>
+<p>然后定义有青眼白龙，黑暗魔术师和真红眼黑龙的卡组。我们还用切片的方式抽出卡组的第一张牌。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">YuGiOhDeck</span>:</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>        self._cards = [Card(<span class="number">8</span>, <span class="number">3000</span>), Card(<span class="number">7</span>, <span class="number">2500</span>), Card(<span class="number">7</span>, <span class="number">2400</span>)]    </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>        <span class="keyword">return</span> len(self._cards)    </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>    <span class="function"><span class="keyword">def</span> <span class="title">__getitem__</span><span class="params">(self, position)</span>:</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>        <span class="keyword">return</span> self._cards[position]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>deck = YuGiOhDeck()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>len(deck), deck[<span class="number">0</span>]</span><br><span class="line">(<span class="number">3</span>, Card(Star=<span class="number">8</span>, ATK=<span class="number">3000</span>))</span><br></pre></td></tr></table></figure>
+<p>问题来了，我们抽牌不是神抽，那怎么抽卡组？所以需要写一个抽牌的method?</p>
+<p>这个时候就体现出Data Model的好处。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> random <span class="keyword">import</span> choice</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>choice(deck)</span><br><span class="line">Card(Star=<span class="number">7</span>, ATK=<span class="number">2500</span>)</span><br></pre></td></tr></table></figure>
+<p>通过查看<code>random.choice</code>的源码，其实包含了三个步骤，</p>
+<ol type="1">
+<li>调用<code>len(seq)</code>获得序列的长度</li>
+<li>产生一个<code>[0, length-1]</code>的随机整数<code>i</code></li>
+<li><code>seq[i]</code>切片</li>
+</ol>
+<p>所以Data Model的好处就在于，提前定义了很多神奇的operations，我们只需要定义好它们所需要的special methods，就可以套用那些opeartions。</p>
+<p>此外，因为我们已经定义好了<code>__getitem__</code>，所以我们还能通过切片神抽。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>deck[<span class="number">1</span>]</span><br><span class="line">Card(Star=<span class="number">7</span>, ATK=<span class="number">2500</span>)</span><br></pre></td></tr></table></figure>
+<p>定义好<code>__getitem__</code>，意味着<code>YuGiOhDeck</code>是iterable，于是<code>reversed()</code>，<code>sorted()</code>，<code>in</code>都支持了。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list(reversed(deck))</span><br><span class="line">[Card(Star=<span class="number">7</span>, ATK=<span class="number">2400</span>), Card(Star=<span class="number">7</span>, ATK=<span class="number">2500</span>), Card(Star=<span class="number">8</span>, ATK=<span class="number">3000</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list(sorted(deck, key=<span class="keyword">lambda</span> card: card[<span class="number">1</span>]))</span><br><span class="line">[Card(Star=<span class="number">7</span>, ATK=<span class="number">2400</span>), Card(Star=<span class="number">7</span>, ATK=<span class="number">2500</span>), Card(Star=<span class="number">8</span>, ATK=<span class="number">3000</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Card(<span class="number">1</span>, <span class="number">1300</span>) <span class="keyword">in</span> deck</span><br><span class="line"><span class="literal">False</span></span><br></pre></td></tr></table></figure>
+<p>总结一下，我们不需要显式地定义一个新的类继承于某些已经基本的类，只需要通过定义special methods就能让我们定义的类可以使用到python的很多语言特性。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1737,7 +2443,7 @@ f_{\bf Y}({\bf y})&amp;=f_{\bf X}\big(U^{-1}({\bf y}-\mu_{\bf Y})\big)|\det(U^{-
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1766,7 +2472,9 @@ f_{\bf Y}({\bf y})&amp;=f_{\bf X}\big(U^{-1}({\bf y}-\mu_{\bf Y})\big)|\det(U^{-
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1815,7 +2523,13 @@ f_{\bf Y}({\bf y})&amp;=f_{\bf X}\big(U^{-1}({\bf y}-\mu_{\bf Y})\big)|\det(U^{-
                     
                       
                     
-                    <span class="site-state-item-count">13</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -2408,6 +3122,14 @@ f_{\bf Y}({\bf y})&amp;=f_{\bf X}\big(U^{-1}({\bf y}-\mu_{\bf Y})\big)|\det(U^{-
 
   
   
+    
+      
+    
+      
+    
+      
+    
+      
     
       
     
